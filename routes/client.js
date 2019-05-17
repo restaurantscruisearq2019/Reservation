@@ -1,6 +1,6 @@
 const express = require("express");
-
-const Pool = require('pg').Pool
+const pool = require('../PostgreDB/reservetable')
+/* const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'developer',
   host: 'localhost',
@@ -8,7 +8,7 @@ const pool = new Pool({
   password: 'whygodwhy',
   port: 5432
 })
-
+ */
 
 module.exports = app => {
     app.get('/clients',(request, response) => {
