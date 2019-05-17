@@ -3,7 +3,7 @@ const { pool } = require('../PostgreDB/connData')
 
 module.exports = app => {
 
-    app.get('/seeReservation/:name/:startDate',(req, res, startDate) => {
+    app.get('/seeReservation/:name/:startDate',(req, res) => {
         const clientName = req.params.name;
         const startDate = req.params.startDate;
         let idClient;
