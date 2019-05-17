@@ -1,0 +1,24 @@
+{
+  "name": "Table-Reservation",
+  "version": "1.0.0",
+  "description": "Table Reservation Microservice compose of Express and MongoDB.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/restaurantscruisearq2019/Table-Reservation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/restaurantscruisearq2019/Table-Reservation/issues"
+  },
+  "homepage": "https://github.com/restaurantscruisearq2019/Table-Reservation#readme",
+  "dependencies": {
+    "express": "^4.17.0",
+    "pg": "^7.11.0"
+  }
+}
