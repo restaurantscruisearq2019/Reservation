@@ -7,6 +7,7 @@ require("./routes/client")(app);
 require("./routes/table")(app);
 require("./routes/reservation")(app);
 require("./routes/tablereserved")(app);
+require("./routes/reserveTableTransaction")(app);
 
 const PORT = process.env.PORT || 5000;
 

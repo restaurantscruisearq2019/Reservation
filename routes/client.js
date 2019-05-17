@@ -16,7 +16,7 @@ module.exports = app => {
 
         pool.query('SELECT * FROM client WHERE id = $1', [id], (error, results) => {
             if (error) {
-            throw error
+                throw error
             }
             response.status(200).json(results.rows)
         })
@@ -41,10 +41,10 @@ module.exports = app => {
             'UPDATE client SET name = $1, restaurant = $2 WHERE id = $3',
             [name, restaurant, id],
             (error, results) => {
-            if (error) {
-                throw error
-            }
-            response.status(200).send(`Client modified with ID: ${id}`)
+                if (error) {
+                    throw error
+                }
+                response.status(200).send(`Client modified with ID: ${id}`)
             }
         )
     });
@@ -55,7 +55,7 @@ module.exports = app => {
 
         pool.query('DELETE FROM client WHERE id = $1', [id], (error, results) => {
             if (error) {
-            throw error
+                throw error
             }
             response.status(200).send(`Client deleted with ID: ${id}`)
         })

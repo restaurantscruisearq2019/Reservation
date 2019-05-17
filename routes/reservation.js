@@ -16,7 +16,7 @@ module.exports = app => {
 
         pool.query('SELECT * FROM reservation WHERE id = $1', [id], (error, results) => {
             if (error) {
-            throw error
+                throw error
             }
             response.status(200).json(results.rows)
         })
@@ -55,7 +55,7 @@ module.exports = app => {
 
         pool.query('DELETE FROM reservation WHERE id = $1', [id], (error, results) => {
             if (error) {
-            throw error
+                throw error
             }
             response.status(200).send(`Reservation deleted with ID: ${id}`)
         })
