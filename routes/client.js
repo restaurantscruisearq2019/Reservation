@@ -1,14 +1,5 @@
 const express = require("express");
-const pool = require('../PostgreDB/reservetable')
-/* const Pool = require('pg').Pool
-const pool = new Pool({
-  user: 'developer',
-  host: 'localhost',
-  database: 'reservetable',
-  password: 'whygodwhy',
-  port: 5432
-})
- */
+const { pool } = require('../PostgreDB/connData')
 
 module.exports = app => {
     app.get('/clients',(request, response) => {

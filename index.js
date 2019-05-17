@@ -4,6 +4,9 @@ const app = express();
 
 require("./routes/index")(app);
 require("./routes/client")(app);
+require("./routes/table")(app);
+require("./routes/reservation")(app);
+require("./routes/tablereserved")(app);
 
 const PORT = process.env.PORT || 5000;
 
