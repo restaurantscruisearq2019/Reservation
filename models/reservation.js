@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     },{
       timestamps: false,
       freezeTableName: true,
-      tableName: 'client'
+      tableName: 'reservation'
   });
   
     reservation.associate = (models) => {

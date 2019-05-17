@@ -7,14 +7,14 @@ module.exports =  (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        TableNumber: {
+        tablenumber: {
             type: Sequelize.INTEGER,
             allowNull: false
         }
     },{
         timestamps: false,
         freezeTableName: true,
-        tableName: 'client'
+        tableName: 'restauranttable'
     });
 
     return restauranttable;
