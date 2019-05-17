@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-    
+
 module.exports = (sequelize, DataTypes) => {
     const reservation = sequelize.define('reservation', {
         id: {
@@ -15,7 +15,11 @@ module.exports = (sequelize, DataTypes) => {
             type: 'TIMESTAMP',
             allowNull: false
         }
-    });
+    },{
+      timestamps: false,
+      freezeTableName: true,
+      tableName: 'client'
+  });
   
     reservation.associate = (models) => {
       reservation.belongsTo(models.client, {

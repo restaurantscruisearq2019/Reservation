@@ -1,12 +1,16 @@
 const Sequelize = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-    const tablereserved = sequelize.define('reservation', {
+    const tablereserved = sequelize.define('tablereserved', {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         }
+    },{
+        timestamps: false,
+        freezeTableName: true,
+        tableName: 'client'
     });
   
     tablereserved.associate = (models) => {
