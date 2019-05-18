@@ -5,10 +5,8 @@ const app = express();
 
 require("./routes/index")(app);
 require("./routes/client")(app);
-require("./routes/table")(app);
-require("./routes/reservation")(app);
-require("./routes/tablereserved")(app);
-require("./routes/reserveTableTransaction")(app);
+require("./routes/group")(app);
+require("./routes/reservedgroup")(app);
 
 const PORT = process.env.PORT || 5000;
 

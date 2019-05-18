@@ -10,16 +10,18 @@ module.exports = (sequelize, DataTypes) => {
         name: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        restaurant: {
-            type: DataTypes.STRING,
-            allowNull: false
         }
     },{
         timestamps: false,
         freezeTableName: true,
         tableName: 'client'
     });
+
+    client.associate = (models) => {
+        client.belongsTo(models.group, {
+          foreignKey: 'groupid'
+        });
+      };
   
     return client;
   };

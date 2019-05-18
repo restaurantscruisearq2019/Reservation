@@ -1,14 +1,13 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('reservetable', 'developer', 'whygodwhy', {
+const sequelize = new Sequelize('reservationdb', 'developer', 'whygodwhy', {
   dialect: 'postgres'
 });
 
 const models = {
   client: sequelize.import('./client'),
-  reservation: sequelize.import('./reservation'),
-  tablereserved: sequelize.import('./tablereserved'),
-  restauranttable: sequelize.import('./restauranttable'),
+  reservedgroup: sequelize.import('./reservedgroup'),
+  group: sequelize.import('./group')
 };
 
 Object.keys(models).forEach((modelName) => {

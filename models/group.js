@@ -1,21 +1,17 @@
 const Sequelize = require('sequelize');
 
 module.exports =  (sequelize, DataTypes) => {
-    const restauranttable = sequelize.define('restauranttable', {
+    const group = sequelize.define('group', {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        },
-        tablenumber: {
-            type: Sequelize.INTEGER,
-            allowNull: false
         }
     },{
         timestamps: false,
         freezeTableName: true,
-        tableName: 'restauranttable'
+        tableName: 'group'
     });
 
-    return restauranttable;
+    return group;
   };
