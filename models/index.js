@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('reservationdb', 'developer', 'whygodwhy', {
-  dialect: 'postgres'
+  dialect: 'postgres',
+  host: 'db'
 });
 
 const models = {
