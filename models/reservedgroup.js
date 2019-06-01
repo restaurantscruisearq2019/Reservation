@@ -8,11 +8,11 @@ module.exports = (sequelize, DataTypes) => {
           autoIncrement: true
         },
         startdate: {
-          type: 'TIMESTAMP',
+          type: DataTypes.STRING,
           allowNull: false
         },
         enddate: {
-          type: 'TIMESTAMP',
+          type: DataTypes.STRING,
           allowNull: false
         },
         restaurantid: {

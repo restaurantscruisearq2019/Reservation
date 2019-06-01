@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('reservationdb', 'developer', 'whygodwhy', {
   dialect: 'postgres',
-  host: 'db'
+  host: 'localhost'
 });
 
 const models = {

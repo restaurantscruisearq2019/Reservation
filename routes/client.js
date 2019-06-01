@@ -2,7 +2,7 @@ const express = require("express");
 const { pool } = require('../PostgreDB/connData')
 
 module.exports = app => {
-    app.get('/clients',(request, response) => {
+    app.get('/clients',(req, response) => {
         pool.query('SELECT * FROM client ORDER BY id ASC', (error, results) => {
             if (error) {
                 console.log(error)
@@ -23,19 +23,19 @@ module.exports = app => {
     });
 
     app.post('/clients', (request, response) => {
-        const { name, groupid } = request.body
+        const { name, groupid } = request.query
 
-        pool.query('INSERT INTO client (name, groupid) VALUES ($1, $2)', [name, groupid], (error, results) => {
+        pool.query('INSERT INTO client (name, groupid) VALUES ($1, $2)', [name, groupid], (error) => {
             if (error) {
                 console.log(error)
             }
-            response.status(201).send(`Client added with ID: ${results.insertId}`)
+            response.status(201).send('Client added.')
         })
     });
 
     app.put('/clients/:id', (request, response) => {
         const id = parseInt(request.params.id)
-        const { name, groupid } = request.body
+        const { name, groupid } = request.query
 
         pool.query(
             'UPDATE client SET name = $1, groupid = $2 WHERE id = $3',
@@ -44,7 +44,7 @@ module.exports = app => {
                 if (error) {
                     console.log(error)
                 }
-                response.status(200).send(`Client modified with ID: ${id}`)
+                response.status(200).send(`Client with ID ${id} modified`)
             }
         )
     });
@@ -57,7 +57,7 @@ module.exports = app => {
             if (error) {
                 console.log(error)
             }
-            response.status(200).send(`Client deleted with ID: ${id}`)
+            response.status(200).send(`Client with ID ${id} deleted`)
         })
     });
 

@@ -22,24 +22,24 @@ module.exports = app => {
         })
     });
 
-    app.post('/groups', (request, response) => {
+    app.post('/groups', (req, response) => {
 
-        pool.query('INSERT INTO "group" default values', (error, results) => {
+        pool.query('INSERT INTO "group" default values', (error) => {
             if (error) {
                 console.log(error)
             }
-            response.status(201).send(`Group Reserved added with ID: ${results.insertId}`)
+            response.status(201).send(`Group Reserved added.`)
         })
     });
 
     app.delete('/groups/:id', (request, response) => {
         const id = parseInt(request.params.id)
 
-        pool.query('DELETE FROM "group" WHERE id = $1', [id], (error, results) => {
+        pool.query('DELETE FROM "group" WHERE id = $1', [id], (error) => {
             if (error) {
                 console.log(error)
             }
-            response.status(200).send(`Group Reserved deleted with ID: ${id}`)
+            response.status(200).send(`Group Reserved with ID ${id} deleted`)
         })
     });
 

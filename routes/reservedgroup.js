@@ -23,28 +23,28 @@ module.exports = app => {
     });
 
     app.post('/reservedgroups', (request, response) => {
-        const { groupid, restaurantid, startDate, endDate } = request.body
+        const { groupid, restaurantid, startdate, enddate } = request.query
 
-        pool.query('INSERT INTO reservedgroup (groupid, restaurantid, startdate, enddate) VALUES ($1,$2,$3,$4)', [groupid, restaurantid, startDate, endDate], (error, results) => {
+        pool.query('INSERT INTO reservedgroup (groupid, restaurantid, startdate, enddate) VALUES ($1,$2,$3,$4)', [groupid, restaurantid, startdate, enddate], (error, results) => {
             if (error) {
                 console.log(error)
             }
-            response.status(201).send(`Reserved Group added with ID: ${results}`)
+            response.status(201).send(`Reserved Group added!`)
         })
     });
 
     app.put('/reservedgroups/:id', (req, res) => {
         const id = parseInt(req.params.id)
-        const { groupid, restaurantid, startdate, enddate } = req.body
+        const { groupid, restaurantid, startdate, enddate } = req.query
 
         pool.query(
             'UPDATE reservedgroup SET groupid = $1, restaurantid = $2, startdate = $3, enddate = $4 WHERE id = $5',
             [groupid, restaurantid, startdate, enddate, id],
-            (error, results) => {
+            (error) => {
             if (error) {
                 console.log(error)
             }
-            res.status(200).send(`Reserved Group modified with ID: ${id}`)
+            res.status(200).send(`Reserved Group with ID ${id} modified`)
             }
         )
     });
@@ -57,7 +57,7 @@ module.exports = app => {
             if (error) {
                 console.log(error)
             }
-            response.status(200).send(`Table deleted with ID: ${id}`)
+            response.status(200).send(`Reservation with ID ${id}  deleted`)
         })
     });
 
