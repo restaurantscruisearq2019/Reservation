@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
           allowNull: false
         },
         restaurantid: {
-          type: Sequelize.INTEGER,
+          type: Sequelize.STRING,
           allowNull: false
         }
     },{
