@@ -1,8 +1,9 @@
 const Sequelize = require('sequelize');
+const dbHost = require('../api/dbRoutes');
 
 const sequelize = new Sequelize('reservationdb', 'developer', 'whygodwhy', {
   dialect: 'postgres',
-  host: 'db'
+  host: dbHost
 });
 
 const models = {
